@@ -1,0 +1,200 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+/*  apply a natural box layout model to all elements  */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* ── Base ───────────────────────────────────────────────── */
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(160deg, #74b9ff 0%, #0984e3 100%);
+    color: #2d3436;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    color: #fff;
+}
+
+header #location {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+#settings {
+    cursor: pointer;
+    line-height: 0;
+}
+
+#settings img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+/* ── Main ───────────────────────────────────────────────── */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+}
+
+/* ── Weather Card ───────────────────────────────────────── */
+#weatherCard {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    padding: 1.5rem 2rem;
+    width: 100%;
+    max-width: 22rem;
+    text-align: center;
+}
+
+#weatherCard .date {
+    margin: 0 0 0.25rem;
+    font-size: 0.8rem;
+    color: #636e72;
+}
+
+#weatherCard img {
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+
+.icon-bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(116, 185, 255, 0.25);
+    margin: 0.5rem auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Stat Grid ──────────────────────────────────────────── */
+.stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+    margin-top: 0.75rem;
+}
+
+.stat-grid .temp {
+    grid-column: 1 / -1;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.stat-grid .description {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #636e72;
+    text-transform: capitalize;
+}
+
+.stat-grid .feels-like,
+.stat-grid .wind-speed {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #2d3436;
+}
+
+/* ── Zip Modal (aside) ──────────────────────────────────── */
+aside {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: min(18rem, 80vw);
+    background: #fff;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    padding: 2rem 1.5rem;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 100;
+}
+
+aside.show {
+    display: flex;
+}
+
+#closeAside {
+    background: #b2bec3;
+}
+
+#closeAside:hover {
+    background: #95a5a6;
+}
+
+aside p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #636e72;
+}
+
+aside input[type="number"] {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 2px solid #b2bec3;
+    border-radius: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+aside input[type="number"]:focus {
+    border-color: #0984e3;
+}
+
+/* hide number input spin arrows */
+aside input[type="number"]::-webkit-inner-spin-button,
+aside input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+aside input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+
+aside button {
+    width: 100%;
+    padding: 0.65rem;
+    background: #0984e3;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+aside button:hover {
+    background: #0773c5;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.75rem;
+    padding: 0.75rem;
+}
